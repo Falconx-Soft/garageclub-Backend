@@ -1,0 +1,487 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/validations/:
+    get:
+      operationId: listValidations
+      description: ''
+      parameters:
+      - name: type
+        required: false
+        in: query
+        description: type
+        schema:
+          type: string
+          enum:
+          - 0
+          - 1
+      - name: risk
+        required: false
+        in: query
+        description: risk
+        schema:
+          type: string
+          enum:
+          - 1
+          - 2
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Validation'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createValidation
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Validation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Validation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Validation'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Validation'
+          description: ''
+      tags:
+      - api
+  /api/validations/{id}/:
+    get:
+      operationId: retrieveValidation
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this validation.
+        schema:
+          type: string
+      - name: type
+        required: false
+        in: query
+        description: type
+        schema:
+          type: string
+          enum:
+          - 0
+          - 1
+      - name: risk
+        required: false
+        in: query
+        description: risk
+        schema:
+          type: string
+          enum:
+          - 1
+          - 2
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Validation'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateValidation
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this validation.
+        schema:
+          type: string
+      - name: type
+        required: false
+        in: query
+        description: type
+        schema:
+          type: string
+          enum:
+          - 0
+          - 1
+      - name: risk
+        required: false
+        in: query
+        description: risk
+        schema:
+          type: string
+          enum:
+          - 1
+          - 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Validation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Validation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Validation'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Validation'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateValidation
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this validation.
+        schema:
+          type: string
+      - name: type
+        required: false
+        in: query
+        description: type
+        schema:
+          type: string
+          enum:
+          - 0
+          - 1
+      - name: risk
+        required: false
+        in: query
+        description: risk
+        schema:
+          type: string
+          enum:
+          - 1
+          - 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Validation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Validation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Validation'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Validation'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyValidation
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this validation.
+        schema:
+          type: string
+      - name: type
+        required: false
+        in: query
+        description: type
+        schema:
+          type: string
+          enum:
+          - 0
+          - 1
+      - name: risk
+        required: false
+        in: query
+        description: risk
+        schema:
+          type: string
+          enum:
+          - 1
+          - 2
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/costs/:
+    get:
+      operationId: listCosts
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cost'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createCost
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Cost'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cost'
+          description: ''
+      tags:
+      - api
+  /api/costs/{id}/:
+    get:
+      operationId: retrieveCost
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cost.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cost'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateCost
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cost.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Cost'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cost'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateCost
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cost.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Cost'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cost'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyCost
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cost.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Validation:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        costs:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              uuid:
+                type: string
+                format: uuid
+              quantity:
+                type: integer
+                minimum: 1
+              amount:
+                type: number
+              cost:
+                type: integer
+            required:
+            - cost
+        uuid:
+          type: string
+          format: uuid
+        calculation_type:
+          enum:
+          - 0
+          - 1
+          type: integer
+        reference:
+          type: string
+          maxLength: 15
+        make:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 6
+          - 5
+          - 7
+          - 8
+          - 9
+          - 10
+          type: integer
+          nullable: true
+        model:
+          type: string
+          maxLength: 50
+        amount_purchase:
+          type: number
+        purchase_vat:
+          type: boolean
+        amount_sale:
+          type: number
+        sale_vat:
+          type: boolean
+        margin:
+          type: number
+          nullable: true
+        type:
+          enum:
+          - 0
+          - 1
+          type: integer
+        risk:
+          enum:
+          - 1
+          - 2
+          type: integer
+      required:
+      - costs
+      - calculation_type
+      - reference
+      - model
+      - amount_purchase
+      - amount_sale
+      - type
+      - risk
+    Cost:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        vat:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            uuid:
+              type: string
+              format: uuid
+            description:
+              type: string
+              nullable: true
+              maxLength: 10
+            amount:
+              type: number
+        uuid:
+          type: string
+          format: uuid
+        description:
+          type: string
+          maxLength: 50
+        amount:
+          type: number
+        active:
+          type: boolean
+      required:
+      - vat
+      - description
+      - amount

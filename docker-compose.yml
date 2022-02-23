@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  web:
+    container_name: gcmobileservices_api
+    build: .
+    volumes:
+      - .:/code
+      - ./static-root:/static-root
+      - ./media-root:/media-root
+    command: sh -c "python manage.py runserver 0.0.0.0:8001"
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    image: gcmobileservices-image
+    networks:
+      - gcmobileservices-network
+
+
+networks:
+  gcmobileservices-network:
+    driver: bridge
