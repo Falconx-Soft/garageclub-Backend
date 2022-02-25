@@ -18,3 +18,7 @@ class ValidationViewSet(viewsets.ModelViewSet):
 class CostViewSet(viewsets.ModelViewSet):
 	queryset = Cost.objects.all()
 	serializer_class = CostSerializer
+
+class ProfitabilityViewSet(viewsets.ModelViewSet):
+	queryset = Profitability.objects.all()
+	serializer_class = ProfitabilitySerializer

@@ -7,5 +7,7 @@ router = routers.DefaultRouter()
 router.register(r'validations', views.ValidationViewSet)
 router.register(r'costs', views.CostViewSet)
 
+router.register(r'profitability', views.ProfitabilityViewSet)
+
 urlpatterns = []
 urlpatterns += router.urls

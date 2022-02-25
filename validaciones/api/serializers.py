@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from validaciones.models import CostQuantity, Validation, Cost, Vat
+from validaciones.models import CostQuantity, Validation, Cost, Vat, Profitability
 
 
 class VATSerializer(serializers.ModelSerializer):
@@ -21,6 +21,10 @@ class CostQuantitySerializer(serializers.ModelSerializer):
         model = CostQuantity
         exclude = ['created_at', 'deleted_at', 'updated_at']
 
+class ProfitabilitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profitability
+        fields = '__all__'
 
 class ValidationSerializer(serializers.ModelSerializer):
     costs = CostQuantitySerializer(many=True)
