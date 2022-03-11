@@ -11,7 +11,7 @@ class CostAdmin(admin.ModelAdmin):
     list_display = ('description', 'amount')
 
 class CostQuantityAdmin(admin.ModelAdmin):
-    list_display = ('quantity','amount')
+    list_display = ('quantity','cost')
 
 class ProfitabilityAdmin(admin.ModelAdmin):
     list_display = ('min_purchase_range','max_purchase_range','typeA','typeB','typeC')

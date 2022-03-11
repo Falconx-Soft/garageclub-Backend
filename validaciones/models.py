@@ -26,12 +26,18 @@ class Cost(BaseModel):
 	priority = models.IntegerField(default=0)
 	# active = models.BooleanField(default=False, blank=False)
 	vat = models.ForeignKey(Vat, on_delete=models.CASCADE, null=True,blank=True)
+	
+	def __str__(self):
+		return self.description
 
 
 class CostQuantity(BaseModel):
 	cost = models.ForeignKey(Cost, on_delete=models.CASCADE)
 	quantity = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
-	amount = models.FloatField(blank=True, null=False)
+
+	def __str__(self):
+		return self.cost.description
+	
 
 
 class Validation(BaseModel):
@@ -45,7 +51,7 @@ class Validation(BaseModel):
 	sale_vat = models.BooleanField(default=False)
 	margin = models.FloatField(blank=True, null=True)
 	type = models.IntegerField(choices=VEHICLE_TYPES)
-	risk = models.IntegerField(choices=VEHICLE_RISKS)
+	risk = models.IntegerField(choices=VEHICLE_RISKS, null=True, blank=True)
 	costs = models.ManyToManyField(CostQuantity,null=True, blank=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 
