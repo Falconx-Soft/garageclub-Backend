@@ -34,6 +34,7 @@ class Cost(BaseModel):
 class CostQuantity(BaseModel):
 	cost = models.ForeignKey(Cost, on_delete=models.CASCADE)
 	quantity = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
+	amount = models.FloatField(blank=True, null=False,default=0)
 
 	def __str__(self):
 		return self.cost.description
