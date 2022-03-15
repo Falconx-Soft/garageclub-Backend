@@ -7,7 +7,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
-@csrf_exempt
 class ValidationViewSet(viewsets.ModelViewSet):
 
 	queryset = Validation.objects.all()

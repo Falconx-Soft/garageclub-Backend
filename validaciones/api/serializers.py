@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from validaciones.models import CostQuantity, Validation, Cost, Vat, Profitability
-from django.views.decorators.csrf import csrf_exempt
 
 
 class VATSerializer(serializers.ModelSerializer):
@@ -26,7 +25,7 @@ class ProfitabilitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Profitability
         fields = '__all__'
-@csrf_exempt
+
 class ValidationSerializer(serializers.ModelSerializer):
     costs = CostQuantitySerializer(many=True)
 
