@@ -3,10 +3,11 @@ from .serializers import *
 from rest_framework import viewsets
 from validaciones.models import *
 from django_filters.rest_framework import DjangoFilterBackend
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
-
+@csrf_exempt
 class ValidationViewSet(viewsets.ModelViewSet):
 
 	queryset = Validation.objects.all()
