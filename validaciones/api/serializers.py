@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from validaciones.models import CostQuantity, Validation, Cost, Vat, Profitability
+from rest_framework.response import Response
 
 
 class VATSerializer(serializers.ModelSerializer):
@@ -47,24 +48,20 @@ class ValidationSerializer(serializers.ModelSerializer):
         validation.costs.add(*costs)
         costs_sum = sum(cost.amount for cost in costs)
         print(costs_sum)
-
-        # if validation.calculation_type == 1:
-        #     net_margin = validation.amount_purchase - validation.amount_sale
-        #     net_margin = net_margin - costs_sum
-        #     print(net_margin)
-
-        # elif validation.calculation_type == 0:
-            
-        #     validation.sale_vat = True
-            
-        #     gross_margin = validation.amount_sale - validation.amount_purchase
-        #     net_margin = gross_margin / (1 + 0.21) 
-
-        #     net_margin = net_margin - costs_sum
-        #     print(net_margin)
-
-        # validation.margin = float('{:.2f}'.format(net_margin))
         validation.save()
-
-
         return validation
+
+    def update(self, request, *args, **kwargs):
+        validation_obj = Validation.objects.get()
+
+        data = request.data
+        
+        for c in data.costs:
+            print(c,"HEre we are")
+
+        costs_obj = CostQuantity.objects.filter(costs = data.costs)
+        validation_obj.reference = "updated"
+
+        validation_obj.save()
+
+        return Response({"success":1})
