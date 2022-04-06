@@ -78,6 +78,5 @@ class updateValidation(generics.ListCreateAPIView):
 		validation_obj.purchase_vat = purchase_vat
 		validation_obj.margin = margin
 		validation_obj.risk = risk
-
 		validation_obj.save()
 		return Response({"state":0})

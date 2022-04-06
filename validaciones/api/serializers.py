@@ -6,7 +6,7 @@ from rest_framework.response import Response
 class VATSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vat
-        exclude = ['created_at', 'deleted_at', 'updated_at']
+        exclude = []
 
 
 class CostSerializer(serializers.ModelSerializer):
@@ -14,13 +14,13 @@ class CostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Cost
-        exclude = ['created_at', 'deleted_at', 'updated_at']
+        exclude = []
 
 class CostQuantitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CostQuantity
-        exclude = ['created_at', 'deleted_at', 'updated_at']
+        exclude = []
 
 class ProfitabilitySerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,7 +32,7 @@ class ValidationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Validation
-        exclude = ['deleted_at', 'updated_at']
+        exclude = []
         depth = 1
 
     def create(self, validated_data):

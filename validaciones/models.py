@@ -8,7 +8,7 @@ import uuid
 
 
 # Create your models here.
-class BaseModel(Paranoid):
+class BaseModel(models.Model):
 	uuid = models.UUIDField(default=uuid.uuid4, unique=True)
 
 	class Meta:
@@ -51,8 +51,8 @@ class Validation(BaseModel):
 	amount_sale = models.FloatField()
 	sale_vat = models.BooleanField(default=False)
 	margin = models.FloatField(blank=True, null=True)
-	type = models.IntegerField(choices=VEHICLE_TYPES)
-	risk = models.IntegerField(choices=VEHICLE_RISKS, null=True, blank=True)
+	type = models.IntegerField(choices=((0,0),(1,1),(2,2)))
+	risk = models.IntegerField(choices=((1,1),(2,2)), null=True, blank=True)
 	costs = models.ManyToManyField(CostQuantity,null=True, blank=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 
