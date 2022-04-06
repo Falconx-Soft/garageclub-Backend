@@ -43,6 +43,7 @@ class updateValidation(generics.ListCreateAPIView):
 		sale_vat  = request.data.get('sale_vat')
 		margin  = request.data.get('margin')
 		risk  = request.data.get('risk')
+		type  = request.data.get('type')
 
 		validation_obj = Validation.objects.get(id=id)
 		newcostId = []
@@ -78,5 +79,6 @@ class updateValidation(generics.ListCreateAPIView):
 		validation_obj.purchase_vat = purchase_vat
 		validation_obj.margin = margin
 		validation_obj.risk = risk
+		validation_obj.type = type
 		validation_obj.save()
 		return Response({"state":0})
