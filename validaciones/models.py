@@ -24,8 +24,8 @@ class Cost(BaseModel):
 	description = models.CharField(max_length=50)
 	amount = models.FloatField(null=False)
 	priority = models.IntegerField(default=0)
-	# active = models.BooleanField(default=False, blank=False)
 	vat = models.ForeignKey(Vat, on_delete=models.CASCADE, null=True,blank=True)
+	icon = models.ImageField(null=True, blank=True)
 	
 	def __str__(self):
 		return self.description
