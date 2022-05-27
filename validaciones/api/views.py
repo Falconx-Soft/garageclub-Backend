@@ -53,6 +53,7 @@ class updateValidation(generics.ListCreateAPIView):
 				if c2.cost.id == c['cost']:
 					c2.quantity = c['quantity']
 					c2.amount = c['amount']
+					c2.save()
 		
 		costId = []
 		for c in validation_obj.costs.all():
